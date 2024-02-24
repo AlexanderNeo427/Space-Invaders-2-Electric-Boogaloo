@@ -1,9 +1,7 @@
 # Space Invaders 2: Electric Boogaloo
  
-[Gameplay Video](https://youtu.be/mf0ykPw7NUE?si=UiMnmGYqPR48u1Vc)
-
-_Excusing the misleading name_, this game is actually a clone of the old arcade shooter, Asteroids. Albeit with improvements to the physics, graphics, & gameplay features!
-Made for my Programming Physics Assignment 1 during my time in Nanyang Polytechnic (NYP).
+_Excusing the misleading name_, this game is actually a clone of the old arcade shooter, Asteroids. Albeit with improvements to the physics, graphics, & gameplay features!\
+Assignment 1 of my "Programming Physics" module that I took during my time in Nanyang Polytechnic (NYP). Gameplay can be found [here](https://youtu.be/mf0ykPw7NUE?si=UiMnmGYqPR48u1Vc)
 
 ### Features
 * Physics adheres more closely to newtonian mechanics, compared to the classic asteroids
