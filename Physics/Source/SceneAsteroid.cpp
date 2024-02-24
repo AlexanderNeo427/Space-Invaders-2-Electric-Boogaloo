@@ -169,7 +169,6 @@ void SceneAsteroid::Update(double dt)
 		if (bounceTime > 0.7f)
 		{
 			++CurrWave;
-
 			bounceTime = 0;
 		}
 	}
@@ -178,7 +177,6 @@ void SceneAsteroid::Update(double dt)
 		if (bounceTime > 0.7f)
 		{
 			--CurrWave;
-
 			bounceTime = 0;
 		}
 	}
@@ -192,7 +190,6 @@ void SceneAsteroid::Update(double dt)
 		if (bTime_Switch > 0.4f)
 		{
 			Weapon = static_cast<WEAPON_TYPE>((Weapon + 1) % NUM_WEAPON_TYPES);
-
 			bTime_Switch = 0;
 		}
 	}
@@ -201,11 +198,8 @@ void SceneAsteroid::Update(double dt)
 	{
 		if (bTime_Switch > 0.4f)
 		{
-			if (Weapon == 0) 
-				Weapon = static_cast<WEAPON_TYPE>(NUM_WEAPON_TYPES - 1);
-			else 
-				Weapon = static_cast<WEAPON_TYPE>((Weapon - 1) % NUM_WEAPON_TYPES);
-
+			if (Weapon == 0) Weapon = static_cast<WEAPON_TYPE>(NUM_WEAPON_TYPES - 1);
+			else			 Weapon = static_cast<WEAPON_TYPE>((Weapon - 1) % NUM_WEAPON_TYPES);
 			bTime_Switch = 0;
 		}
 	}
@@ -289,6 +283,10 @@ void SceneAsteroid::Update(double dt)
 	//=================================================================================================
 	//							  PHYSICS SIMULATION SECTION
 	//=================================================================================================
+	// FRICTION
+	const float FRICTION_COEFFICIENT = 0.98f;
+	m_ship->vel *= FRICTION_COEFFICIENT;
+	
 	// SHIP UPDATE
 	/*	 Ship Movement
 			F = ma | a = F/m | a = F * (1/m)
@@ -455,12 +453,9 @@ void SceneAsteroid::Update(double dt)
 				{
 					DamageGO(m_ship);	// Damage Ship
 					DamageGO(go);		// Damage Asteroid
-
 					continue;
 				}
-
 				go->pos += go->vel * DT * m_speed;	// Movement
-
 				WrapGO(go);	// Wrap around
 			}
 			//=========================================================================================
@@ -564,7 +559,6 @@ void SceneAsteroid::Update(double dt)
 				{
 					DamageGO(go);		// Damage Enemy
 					DamageGO(m_ship);	// Damage Ship
-
 					continue;
 				}
 
@@ -720,7 +714,6 @@ void SceneAsteroid::Update(double dt)
 						}
 					}
 				}
-				
 				b_RepelActive = false;
 			}
 
